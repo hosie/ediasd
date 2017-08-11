@@ -8,7 +8,7 @@
     "dev": "webpack -d --watch",
     "build": "webpack -p && cp client/index.html client/public",
     "deploy": "gh-pages -d client/public -a",
-	"start": "http-server -c-1 client/public"
+    "start": "http-server -c-1 client/public"
   },
   "author": "Hosie",
   "license": "MIT",
@@ -19,9 +19,11 @@
     "babel-preset-react": "^6.24.1",
     "gh-pages": "^1.0.0",
     "http-server": "^0.10.0",
+    "ibm-icon-font": "^0.9.6-c",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
     "webpack": "^3.4.1",
     "whatwg-fetch": "^2.0.3"
   },
