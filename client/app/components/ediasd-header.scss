@@ -17,6 +17,7 @@
   .ediasd-header__button {
 
     font-size: 64px;
+    color: #fff;
     @include breakpoint(laptop) {
       font-size: 50px
     }

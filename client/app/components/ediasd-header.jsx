@@ -2,6 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import css from "./ediasd-header.scss";
 import ibmIconCss from 'ibm-icon-font/css/ibmicons.css';
+import {Link} from 'react-router-dom';
 
 export default class EdiasdHeader extends React.Component {
   render() {
@@ -12,10 +13,11 @@ export default class EdiasdHeader extends React.Component {
           <h1 className="ediasd-header__product-name">EDIASD</h1>
         </a>
         <div className="ediasd-header__button-container">
-          <div className="ediasd-header__button ibm-icon ibm-add-new"></div>
+          <Link to="/add">
+            <div className="ediasd-header__button ibm-icon ibm-add-new">
+            </div>
+          </Link>
         </div>
-
-
       </div>
     )
   }
