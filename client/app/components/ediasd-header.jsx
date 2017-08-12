@@ -3,6 +3,7 @@ import * as ReactDOM from "react-dom";
 import css from "./ediasd-header.scss";
 import ibmIconCss from 'ibm-icon-font/css/ibmicons.css';
 import {Link} from 'react-router-dom';
+import ActionBarContainer from './action-bar-container.jsx';
 
 export default class EdiasdHeader extends React.Component {
   render() {
@@ -17,6 +18,7 @@ export default class EdiasdHeader extends React.Component {
             <div className="ediasd-header__button ibm-icon ibm-add-new">
             </div>
           </Link>
+          <ActionBarContainer></ActionBarContainer>
         </div>
       </div>
     )
