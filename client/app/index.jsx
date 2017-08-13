@@ -1,9 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import css from './index.scss';
-import EdiasdHeader from "./components/ediasd-header.jsx";
-import Home from "./components/home.jsx";
-import AddCard from "./components/add-card.jsx";
+import Header from "./components/header/header.jsx";
+import Home from "./components/home/home.jsx";
+import AddCard from "./components/add-card/add-card.jsx";
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
@@ -51,7 +51,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <div>
-        <EdiasdHeader></EdiasdHeader>
+        <Header></Header>
         <Route exact path="/" component={Home}/>
         <Route path="/add" component={AddCard}/>
       </div>

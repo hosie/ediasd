@@ -1,7 +1,5 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import css from "./card.scss";
-
 
 export default class ActionBar extends React.Component {
 

@@ -1,8 +1,8 @@
-@import '../mixins-and-variables';
+@import '../../mixins-and-variables';
 
 
 
-.ediasd-header {
+.header {
   height: 80px;
   background-color: $accentColor;
   color: #fff;
@@ -14,7 +14,7 @@
 		height: 60px;
 	}
 
-  .ediasd-header__button {
+  .header__button {
 
     font-size: 64px;
     color: #fff;
@@ -24,24 +24,24 @@
   }
 }
 
-.ediasd-header__button-container {
+.header__button-container {
   display: flex;
   flex: 1;
   justify-content: flex-end;
 }
 
 
-.ediasd-header__side-nav-toggle {
+.header__side-nav-toggle {
     background-color: $secondaryAccentColor;
     width: 60px;
     height: 100%;
 }
 
-.ediasd-header__product-name-link {
+.header__product-name-link {
     color: #fff;
     outline: none;
     text-decoration: none;
-    .ediasd-header__product-name {
+    .header__product-name {
         white-space: nowrap;
         margin-top: 11px;
         margin-left: 24px;

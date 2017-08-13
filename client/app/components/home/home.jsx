@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import Card from "./card.jsx";
+import Card from "../card/card.jsx";
 import css from "./home.scss";
-import CardService from '../services/card-service.js';
+import CardService from '../../services/card-service.js';
 
 export default class Home extends React.Component {
   constructor() {

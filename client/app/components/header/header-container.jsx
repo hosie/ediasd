@@ -1,14 +1,15 @@
 import { connect } from 'react-redux'
-import EdiasdHeader from "./components/ediasd-header.jsx";
+import Header from "./header.jsx";
 
 const mapStateToProps = state => {
   return {
+
     validActions: state.validActions
   }
 }
 
 const HeaderContainer = connect(
   mapStateToProps
-)(EdiasdHeader)
+)(Header)
 
 export default HeaderContainer
