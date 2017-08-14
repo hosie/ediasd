@@ -1,7 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import css from './index.scss';
-import Header from "./components/header/header.jsx";
 import Home from "./components/home/home.jsx";
 import AddCard from "./components/add-card/add-card.jsx";
 import { Provider } from 'react-redux';
@@ -51,7 +50,6 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <div>
-        <Header></Header>
         <Route exact path="/" component={Home}/>
         <Route path="/add" component={AddCard}/>
       </div>
