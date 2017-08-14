@@ -1,18 +1,22 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import css from './index.scss';
-import Home from "./components/home/home.jsx";
-import AddCard from "./components/add-card/add-card.jsx";
+import HomeContainer from "./components/home/home-container.jsx";
+import AddCardContainer from "./components/add-card/add-card-container.jsx";
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import addCardReducer from "./components/add-card/add-card-reducer.js";
 
 const initialState = {
   validActions: [
     "ADD"
-  ]
+  ],
+  cards: []
 };
 
 const appReducer = (state=initialState, action) => {
+  //give the component reducers a look in
+  let newState = addCardReducer(state, action);
   if(action) {
     console.log("ACTION:", action.type);
 
@@ -27,7 +31,7 @@ const appReducer = (state=initialState, action) => {
     case "ENABLE_CANCEL":
       break;
     case "ADD":
-      let newState =  Object.assign({}, state, {
+      let newState =  Object.assign({}, newState, {
         validActions: ["OK", "CANCEL"]
       })
       console.log("newState:" + JSON.stringify(newState));
@@ -50,8 +54,8 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <div>
-        <Route exact path="/" component={Home}/>
-        <Route path="/add" component={AddCard}/>
+        <Route exact path="/" component={HomeContainer}/>
+        <Route path="/add" component={AddCardContainer}/>
       </div>
     </Router>
   </Provider>,

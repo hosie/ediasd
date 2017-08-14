@@ -36,7 +36,7 @@ export default class Home extends React.Component {
       </Header>
 
       {
-        this.state.cards.map( card => {
+        this.props.cards.map( card => {
           return (
             <Card key={card.id} cardInfo={card}></Card>
 

@@ -1,3 +1,8 @@
+/*
+ * Standard page header that can be included in any page.
+ * <ActionBar> can be specified as a child and will be rendered at the appropriate
+ * part of the header.
+ */
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import css from "./header.scss";
