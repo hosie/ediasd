@@ -1,13 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-export default class ActionBar extends React.Component {
-
-  render() {
-    return (
-      <div className="action-bar">
-        {this.props.children}
-      </div>
-    );
-  }
-}
+const ActionBar = (props) => (
+  <div className="action-bar">
+    {props.children}
+  </div>
+);
+export default ActionBar;

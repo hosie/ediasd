@@ -2,15 +2,12 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import css from "./card.scss";
 
-export default class Card extends React.Component {
+const Card = (props) => (
+  <div className="card">
+    Q: {props.cardInfo.question} <br></br>
+    <hr></hr>
+    A:  {props.cardInfo.answer}
+  </div>
+);
 
-  render() {
-    return (
-      <div className="card">
-        Q: {this.props.cardInfo.question} <br></br>
-        <hr></hr>
-        A:  {this.props.cardInfo.answer}
-      </div>
-    );
-  }
-}
+export default Card;

@@ -7,44 +7,26 @@ import Header from "../header/header.jsx";
 import ActionBar from '../action-bar/action-bar.jsx';
 import {Link} from 'react-router-dom';
 
-export default class Home extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      cards: [],
-    };
-  }
+const Home = (props) => (
+  <div className="ediasd-home">
+    <Header>
+      <ActionBar>
+        <Link to="/add">
+          <div className="header__button ibm-icon ibm-add-new">
+          </div>
+        </Link>
+      </ActionBar>
+    </Header>
 
-  componentDidMount() {
-    CardService.getCards()
-    .then( cards => {
-      this.setState({cards: cards});
-    });
-  }
+    {
+      props.cards.map( card => {
+        return (
+          <Card key={card.id} cardInfo={card}></Card>
+        )
+      })
+    }
 
+  </div>
+);
 
-  render() {
-    return (
-      <div className="ediasd-home">
-      <Header>
-        <ActionBar>
-          <Link to="/add">
-            <div className="header__button ibm-icon ibm-add-new">
-            </div>
-          </Link>
-        </ActionBar>
-      </Header>
-
-      {
-        this.props.cards.map( card => {
-          return (
-            <Card key={card.id} cardInfo={card}></Card>
-
-          )
-        })
-      }
-
-      </div>
-    )
-  }
-}
+export default Home;
