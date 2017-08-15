@@ -6,7 +6,6 @@ import {Link} from 'react-router-dom';
 
 export default class AddCard extends React.Component {
 
-
   render() {
     let self = this;
     function onOK() {
@@ -46,7 +45,10 @@ export default class AddCard extends React.Component {
           }
 
         </form>
-        <div onClick={onNext} className="ibm-icon ibm-next-right-forward"></div>
+        {
+          this.props.phase < 1 &&
+          <div onClick={onNext} className="ibm-icon ibm-next-right-forward"></div>
+        }
       </div>
     )
   }
