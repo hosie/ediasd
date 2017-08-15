@@ -16,17 +16,5 @@ export default class CardService {
         ])
       }
     }
-    /*fetch(`https://hosie.github.io/template-gallery-prototype/en/repo_metadata.json`)
-    .then(response => {
-      console.log("got response")
-      return response.json();
-
-    })
-    .then(responseJson => {
-      this.setState({templates: responseJson.templates});
-    })
-    .catch(err => {
-      console.log("got error");
-    });*/
   }
 };

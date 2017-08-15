@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Home from './home.jsx';
 const mapStateToProps = (state) => {
   return {
-    cards: state.cards
+    cards: state.data.cards
   };
 }
 
