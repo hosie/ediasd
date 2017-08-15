@@ -1,28 +1,22 @@
 import * as uuid from 'uuid';
 
 const addCardReducer = (state, action) => {
-  if(action.type === "ADD_CARD_OK") {
-    let newState =  Object.assign({}, state, {});
-    try {
-      let newCard = {
-        id: uuid.v4(),
-        question: state.addCard.question
-      };
-      newState.data.cards.push(newCard);
-    } catch (err) {
-      console.log(err);
-    }
+  if ( action.type === "ADD_CARD_QUESTION_CHANGE" ) {
+
+    let newState =  Object.assign({}, state);
+    newState.addCard.question = action.question;
     return newState;
 
-  } else if ( action.type === "ADD_CARD_QUESTION_CHANGE" ) {
+  } else if ( action.type === "ADD_CARD_ANSWER_CHANGE" ) {
 
-    let newState =  Object.assign({}, state, {
-      addCard: {
-        question: action.question
-      }
-    });
+    let newState =  Object.assign({}, state);
+    newState.addCard.answer = action.answer;
     return newState;
 
+  } else if (action.type === "ADD_CARD_QUESTION_ENTERED") {
+    let newState = Object.assign({}, state, {});
+    newState.addCard.phase = 1;
+    return newState;
   } else {
     return state;
   }

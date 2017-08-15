@@ -10,7 +10,8 @@ const dataModelReducer = (state = initialState, action) => {
     try {
       let newCard = {
         id: uuid.v4(),
-        question: action.question
+        question: action.question,
+        answer:  action.answer
       };
       newState.cards.push(newCard);
     } catch (err) {

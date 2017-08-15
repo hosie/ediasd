@@ -1,7 +1,9 @@
 import addCardReducer from "./add-card/add-card-reducer.js";
 
 const initialState = {
-  addCard: {}
+  addCard: {
+    phase:0
+  }
 };
 
 const appReducer = (state=initialState, action) => {

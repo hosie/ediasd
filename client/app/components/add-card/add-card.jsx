@@ -10,7 +10,13 @@ export default class AddCard extends React.Component {
   render() {
     let self = this;
     function onOK() {
-      self.props.onOK(self.props.question);
+      self.props.onOK({
+        question: self.props.question,
+        answer: self.props.answer
+      });
+    }
+    function onNext() {
+      self.props.onQuestionEntered();
     }
     return (
       <div className="add-card">
@@ -24,11 +30,23 @@ export default class AddCard extends React.Component {
         </Header>
         <h1>Add Card</h1>
         <form onSubmit={this.handleSubmit}>
-          <label>
-            Question:
-            <textarea type="text" value={this.props.question} onChange={this.props.onQuestionChange} />
-          </label>
+          {
+            this.props.phase === 0 &&
+            <div>
+              <label>Question:</label>
+              <textarea type="text" value={this.props.question} onChange={this.props.onQuestionChange} />
+            </div>
+          }
+          {
+            this.props.phase === 1 &&
+            <div>
+              <label>Answer:</label>
+              <textarea type="text" value={this.props.answer} onChange={this.props.onAnswerChange} />
+            </div>
+          }
+
         </form>
+        <div onClick={onNext} className="ibm-icon ibm-next-right-forward"></div>
       </div>
     )
   }
