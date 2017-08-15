@@ -8,7 +8,7 @@ import ActionBar from '../action-bar/action-bar.jsx';
 import {Link} from 'react-router-dom';
 
 const Home = (props) => (
-  <div className="ediasd-home">
+  <div className="home">
     <Header>
       <ActionBar>
         <Link to="/add">

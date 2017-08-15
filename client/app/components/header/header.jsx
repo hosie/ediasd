@@ -11,7 +11,7 @@ import ibmIconCss from 'ibm-icon-font/css/ibmicons.css';
 const Header = (props) => (
   <div className="header">
     <div className="header__side-nav-toggle"></div>
-    <a className="header__product-name-link" href="https://designer.ediasdonnect.ibmcloud.com">
+    <a className="header__product-name-link" href="/">
       <h1 className="header__product-name">EDIASD</h1>
     </a>
     <div className="header__button-container">
