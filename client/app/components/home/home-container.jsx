@@ -7,7 +7,15 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    onAddCard: () => {
+      dispatch(
+        {
+          type: "ADD_CARD_OPENED"
+        }
+      );
+    }
+  };
 }
 
 const HomeContainer = connect(

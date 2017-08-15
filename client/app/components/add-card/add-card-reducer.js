@@ -17,6 +17,14 @@ const addCardReducer = (state, action) => {
     let newState = Object.assign({}, state, {});
     newState.addCard.phase = 1;
     return newState;
+  } else if (action.type === "ADD_CARD_OPENED") {
+    let newState = Object.assign({}, state, {});
+    newState.addCard = {
+      phase: 0,
+      question: "",
+      answer: ""
+    };
+    return newState;
   } else {
     return state;
   }

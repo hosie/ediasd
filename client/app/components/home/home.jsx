@@ -11,7 +11,7 @@ const Home = (props) => (
   <div className="home">
     <Header>
       <ActionBar>
-        <Link to="/add">
+        <Link onClick={props.onAddCard} to="/add">
           <div className="header__button ibm-icon ibm-add-new">
           </div>
         </Link>

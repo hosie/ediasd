@@ -18,6 +18,11 @@ const mapDispatchToProps = dispatch => {
             answer: cardData.answer
           }
         );
+        dispatch(
+          {
+            type: "ADD_CARD_CLOSED"
+          }
+        );
     },
     onCancel: () => {
       dispatch(
