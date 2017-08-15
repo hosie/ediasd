@@ -1,8 +1,10 @@
 import * as uuid from 'uuid';
 
-const dataModelReducer = (state = {
+let initialState = {
   cards:[]
-}, action) => {
+};
+
+const dataModelReducer = (state = initialState, action) => {
   if(action.type === "CARD_ADDED") {
     let newState =  Object.assign({}, state, {});
     try {
