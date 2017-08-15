@@ -3,6 +3,7 @@ import * as ReactDOM from "react-dom";
 import Header from "../header/header.jsx";
 import ActionBar from '../action-bar/action-bar.jsx';
 import {Link} from 'react-router-dom';
+import {TextArea} from 'carbon-components-react';
 
 export default class AddCard extends React.Component {
 
@@ -32,15 +33,23 @@ export default class AddCard extends React.Component {
           {
             this.props.phase === 0 &&
             <div>
-              <label>Question:</label>
-              <textarea type="text" value={this.props.question} onChange={this.props.onQuestionChange} />
+              <TextArea
+                labelText="Question"
+                onChange={this.props.onQuestionChange}
+                value={this.props.question}
+                placeholder="Type a question to test whether you remember this fact"
+              />
             </div>
           }
           {
             this.props.phase === 1 &&
             <div>
-              <label>Answer:</label>
-              <textarea type="text" value={this.props.answer} onChange={this.props.onAnswerChange} />
+              <TextArea
+                labelText="Answer"
+                onChange={this.props.onAnswerChange}
+                value={this.props.answer}
+                placeholder="Enter the correct answer to the question"
+              />
             </div>
           }
 

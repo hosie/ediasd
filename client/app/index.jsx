@@ -7,6 +7,7 @@ import appReducer  from './components/app-reducer.js';
 import App from './components/app.jsx';
 import { combineReducers } from 'redux'
 import dataModelReducer from './data-model/data-model-reducer.js';
+import carbonCss from 'carbon-components/css/carbon-components.css';
 const reducer = combineReducers({
   app: appReducer,
   data: dataModelReducer
