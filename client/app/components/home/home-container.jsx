@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import Home from './home.jsx';
 const mapStateToProps = (state) => {
   return {
-    cards: state.data.cards
+    cards: state.data.cards,
+    quizesDue: state.data.quizes//TODO filter on due date and isCompleted
   };
 }
 

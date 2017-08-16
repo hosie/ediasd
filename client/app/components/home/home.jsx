@@ -11,6 +11,13 @@ const Home = (props) => (
   <div className="home">
     <Header>
       <ActionBar>
+        {
+          props.quizesDue.length > 0 &&
+          <Link onClick={props.onAddCard} to="/quiz">
+            <div className="header__button ibm-icon ibm-event-announcement">
+            </div>
+          </Link>
+        }
         <Link onClick={props.onAddCard} to="/add">
           <div className="header__button ibm-icon ibm-add-new">
           </div>
