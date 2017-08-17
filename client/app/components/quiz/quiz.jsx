@@ -8,10 +8,20 @@ const Quiz = (props) => (
     props.cards.map( (card) => (
       <div key={card.id}>
         {card.question}
+        <br/>
+        {
+          props.isRevealed &&
+          <div>
+            {card.answer}
+          </div>
+        }
         <hr/>
+
       </div>
     ))
   }
+
+  <button onClick={props.onReveal}>Reveal</button>
   </div>
 );
 

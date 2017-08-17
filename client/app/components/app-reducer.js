@@ -1,22 +1,22 @@
 import addCardReducer from "./add-card/add-card-reducer.js";
+import quizReducer from "./quiz/quiz-reducer.js";
 
 const initialState = {
   addCard: {
     phase:0
+  },
+  quiz: {
+    isRevealed: false
   }
 };
 
 const appReducer = (state=initialState, action) => {
   //give the component reducers a look in
-  let newState = addCardReducer(state, action);
+  let newState =  Object.assign({}, state)
+  newState = addCardReducer(newState, action);
+  newState = quizReducer(state,action);
 
   switch(action.type) {
-    case "DISABLE_ADD":
-      break;
-    case "ENABLE_OK":
-      break;
-    case "ENABLE_CANCEL":
-      break;
     case "ADD":
       let newState1 =  Object.assign({}, newState, {
         validActions: ["OK", "CANCEL"]
@@ -27,7 +27,5 @@ const appReducer = (state=initialState, action) => {
       return newState;
   }
 };
-
-
 
 export default appReducer;

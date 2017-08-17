@@ -8,12 +8,19 @@ const mapStateToProps = (state) => {
       } else {
         return false;
       }
-    })
+    }),
+    isRevealed: state.app.quiz.isRevealed
   };
 }
 
 const mapDispatchToProps = dispatch => {
-  return {};
+  return {
+    onReveal: () => {
+      dispatch({
+        type: "QUIZ_REVEAL_ANSWER"
+      });
+    }
+  };
 }
 
 const QuizContainer = connect(
