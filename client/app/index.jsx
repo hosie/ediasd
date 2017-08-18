@@ -2,10 +2,9 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import css from './index.scss';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux'
 import appReducer  from './components/app-reducer.js';
 import App from './components/app.jsx';
-import { combineReducers } from 'redux'
 import dataModelReducer from './data-model/data-model-reducer.js';
 import carbonCss from 'carbon-components/css/carbon-components.css';
 const reducer = combineReducers({
@@ -20,7 +19,17 @@ const reducer = combineReducers({
 }
 */
 
-let store = createStore(reducer)
+const logger = store => next => action => {
+  console.log('dispatching', action)
+  let result = next(action)
+  console.log('next state', store.getState())
+  return result
+}
+
+let store = createStore(
+  reducer,
+  applyMiddleware(logger)
+);
 
 ReactDOM.render(
   <Provider store={store}>
