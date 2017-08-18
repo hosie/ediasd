@@ -4,24 +4,21 @@ import css from "./quiz.scss";
 
 const Quiz = (props) => (
   <div>
-  {
-    props.facts.map( (fact) => (
-      <div key={fact.id}>
-        {fact.question}
-        <br/>
-        {
-          props.isRevealed &&
-          <div>
-            {fact.answer}
-          </div>
-        }
-        <hr/>
-
+    {props.facts[props.currentFactIndex].question}
+    <br/>
+    {
+      props.isRevealed &&
+      <div>
+        {props.facts[props.currentFactIndex].answer}
       </div>
-    ))
-  }
+    }
+    <hr/>
+    <button onClick={props.onReveal}>Reveal</button>
+    {
+      (props.currentFactIndex < props.facts.length - 1 ) &&
+      <button onClick={props.onNext}>Next</button>
+    }
 
-  <button onClick={props.onReveal}>Reveal</button>
   </div>
 );
 
