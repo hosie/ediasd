@@ -4,9 +4,7 @@ const initialState = {
 };
 const quizReducer = (state = initialState, action) => {
   if ( action.type === "QUIZ_REVEAL_ANSWER" ) {
-    let newState =  Object.assign({}, state);
-    newState.isRevealed = true;
-    return newState;
+    let newState =  { ...state, isRevealed: true};
   } else {
     return state;
   }
