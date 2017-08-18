@@ -1,8 +1,8 @@
-import addCardReducer from "./add-card/add-card-reducer.js";
+import addFactReducer from "./add-fact/add-fact-reducer.js";
 import quizReducer from "./quiz/quiz-reducer.js";
 
 const initialState = {
-  addCard: {
+  addFact: {
     phase:0
   },
   quiz: {
@@ -13,7 +13,7 @@ const initialState = {
 const appReducer = (state=initialState, action) => {
   //give the component reducers a look in
   let newState =  Object.assign({}, state)
-  newState = addCardReducer(newState, action);
+  newState = addFactReducer(newState, action);
   newState = quizReducer(newState,action);
 
   switch(action.type) {

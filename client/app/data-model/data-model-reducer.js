@@ -1,7 +1,7 @@
 import * as uuid from 'uuid';
 
 let initialState = {
-  cards:[
+  facts:[
     {
       id: 1,
       question: "Who are the people that organise health worldwide?",
@@ -16,21 +16,21 @@ let initialState = {
   quizes:[
     {
       due: "",
-      cards: [1,2]
+      facts: [1,2]
     }
   ]
 };
 
 const dataModelReducer = (state = initialState, action) => {
-  if(action.type === "CARD_ADDED") {
+  if(action.type === "FACT_ADDED") {
     let newState =  Object.assign({}, state, {});
     try {
-      let newCard = {
+      let newFact = {
         id: uuid.v4(),
         question: action.question,
         answer:  action.answer
       };
-      newState.cards.push(newCard);
+      newState.facts.push(newFact);
     } catch (err) {
       console.log(err);
     }

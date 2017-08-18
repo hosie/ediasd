@@ -2,17 +2,17 @@ import { connect } from 'react-redux';
 import Home from './home.jsx';
 const mapStateToProps = (state) => {
   return {
-    cards: state.data.cards,
+    facts: state.data.facts,
     quizesDue: state.data.quizes//TODO filter on due date and isCompleted
   };
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAddCard: () => {
+    onAddFact: () => {
       dispatch(
         {
-          type: "ADD_CARD_OPENED"
+          type: "ADD_FACT_OPENED"
         }
       );
     }

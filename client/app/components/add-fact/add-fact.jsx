@@ -4,9 +4,9 @@ import Header from "../header/header.jsx";
 import ActionBar from '../action-bar/action-bar.jsx';
 import {Link} from 'react-router-dom';
 import {TextArea} from 'carbon-components-react';
-import css from './add-card.scss';
+import css from './add-fact.scss';
 
-export default class AddCard extends React.Component {
+export default class AddFact extends React.Component {
 
   render() {
     let self = this;
@@ -20,7 +20,7 @@ export default class AddCard extends React.Component {
       self.props.onQuestionEntered();
     }
     return (
-      <div className="add-card">
+      <div className="add-fact">
         <Header>
           <ActionBar>
             <Link to="/" onClick={onOK} className="header__button ibm-icon ibm-success-confirmation">
@@ -32,7 +32,7 @@ export default class AddCard extends React.Component {
         </Header>
         {
           this.props.phase < 1 &&
-          <div onClick={onNext} className="add-card__next-button ibm-icon ibm-next-right-forward"></div>
+          <div onClick={onNext} className="add-fact__next-button ibm-icon ibm-next-right-forward"></div>
         }
         <form onSubmit={this.handleSubmit}>
           {

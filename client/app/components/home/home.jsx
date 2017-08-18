@@ -1,8 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import Card from "../card/card.jsx";
+import Fact from "../fact/fact.jsx";
 import css from "./home.scss";
-import CardService from '../../services/card-service.js';
 import Header from "../header/header.jsx";
 import ActionBar from '../action-bar/action-bar.jsx';
 import {Link} from 'react-router-dom';
@@ -13,12 +12,12 @@ const Home = (props) => (
       <ActionBar>
         {
           props.quizesDue.length > 0 &&
-          <Link onClick={props.onAddCard} to="/quiz">
+          <Link onClick={props.onAddFact} to="/quiz">
             <div className="header__button ibm-icon ibm-event-announcement">
             </div>
           </Link>
         }
-        <Link onClick={props.onAddCard} to="/add">
+        <Link onClick={props.onAddFact} to="/add">
           <div className="header__button ibm-icon ibm-add-new">
           </div>
         </Link>
@@ -26,9 +25,9 @@ const Home = (props) => (
     </Header>
 
     {
-      props.cards.map( card => {
+      props.facts.map( fact => {
         return (
-          <Card key={card.id} cardInfo={card}></Card>
+          <Fact key={fact.id} factInfo={fact}></Fact>
         )
       })
     }

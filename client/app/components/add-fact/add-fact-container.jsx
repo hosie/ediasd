@@ -1,40 +1,40 @@
 import { connect } from 'react-redux';
-import ActionBar from './add-card.jsx';
+import ActionBar from './add-fact.jsx';
 const mapStateToProps = (state) => {
   return {
-    question: state.app.addCard.question,
-    answer:   state.app.addCard.answer,
-    phase:    state.app.addCard.phase
+    question: state.app.addFact.question,
+    answer:   state.app.addFact.answer,
+    phase:    state.app.addFact.phase
   };
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onOK: (cardData) => {
+    onOK: (factData) => {
         dispatch(
           {
-            type: "CARD_ADDED",
-            question: cardData.question,
-            answer: cardData.answer
+            type: "FACT_ADDED",
+            question: factData.question,
+            answer: factData.answer
           }
         );
         dispatch(
           {
-            type: "ADD_CARD_CLOSED"
+            type: "ADD_FACT_CLOSED"
           }
         );
     },
     onCancel: () => {
       dispatch(
         {
-          type: "ADD_CARD_CANCEL"
+          type: "ADD_FACT_CANCEL"
         }
       );
     },
     onQuestionChange: (event) => {
       dispatch(
         {
-          type: "ADD_CARD_QUESTION_CHANGE",
+          type: "ADD_FACT_QUESTION_CHANGE",
           question: event.target.value
         }
       );
@@ -42,7 +42,7 @@ const mapDispatchToProps = dispatch => {
     onAnswerChange: (event) => {
       dispatch(
         {
-          type: "ADD_CARD_ANSWER_CHANGE",
+          type: "ADD_FACT_ANSWER_CHANGE",
           answer: event.target.value
         }
       );
@@ -50,7 +50,7 @@ const mapDispatchToProps = dispatch => {
     onQuestionEntered: () => {
       dispatch(
         {
-          type: "ADD_CARD_QUESTION_ENTERED"
+          type: "ADD_FACT_QUESTION_ENTERED"
         }
       );
     }

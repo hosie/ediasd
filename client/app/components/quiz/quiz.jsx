@@ -5,14 +5,14 @@ import css from "./quiz.scss";
 const Quiz = (props) => (
   <div>
   {
-    props.cards.map( (card) => (
-      <div key={card.id}>
-        {card.question}
+    props.facts.map( (fact) => (
+      <div key={fact.id}>
+        {fact.question}
         <br/>
         {
           props.isRevealed &&
           <div>
-            {card.answer}
+            {fact.answer}
           </div>
         }
         <hr/>
