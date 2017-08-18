@@ -14,7 +14,7 @@ const appReducer = (state=initialState, action) => {
   //give the component reducers a look in
   let newState =  Object.assign({}, state)
   newState = addCardReducer(newState, action);
-  newState = quizReducer(state,action);
+  newState = quizReducer(newState,action);
 
   switch(action.type) {
     case "ADD":
