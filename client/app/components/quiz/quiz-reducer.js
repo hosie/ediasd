@@ -1,7 +1,11 @@
-const quizReducer = (state, action) => {
+
+const initialState = {
+  isRevealed: false
+};
+const quizReducer = (state = initialState, action) => {
   if ( action.type === "QUIZ_REVEAL_ANSWER" ) {
     let newState =  Object.assign({}, state);
-    newState.quiz.isRevealed = true;
+    newState.isRevealed = true;
     return newState;
   } else {
     return state;
