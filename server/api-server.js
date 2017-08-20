@@ -1,9 +1,10 @@
 var express = require('express');
 var path=require('path');
-
+var bodyParser = require('body-parser');
 module.exports =  (PORT) => {
   const app = express();
-  app.use('/api/v1/facts', function(req,res) {
+  app.use(bodyParser.json());
+  app.get('/api/v1/facts', function(req,res) {
     res.json(
       [
         {
@@ -19,6 +20,12 @@ module.exports =  (PORT) => {
       ]
     );
   });
+
+  app.put('/api/v1/facts/:id', function(req, res) {
+    console.log("Upsert fact: id=" + req.params.id + ". Body=" + JSON.stringify(req.body));
+    res.sendStatus(201);
+  });
+
   app.use('/api/v1/quizes', function(req, res) {
     res.json(
       [

@@ -1,18 +1,17 @@
-import * as uuid from 'uuid';
-
 let initialState = {
   facts:[],
   quizes:[]
 };
 
 const dataModelReducer = (state = initialState, action) => {
-  if(action.type === "FACT_ADDED") {
-    let newState =  Object.assign({}, state, {});
+  if(action.type === "DATA_FACT_CREATE_REQUEST") {
+    //optimistically, make it so that this fact exists locally
+    let newState =  { ...state, facts: [...state.facts]};
     try {
       let newFact = {
-        id: uuid.v4(),
         question: action.question,
-        answer:  action.answer
+        answer:   action.answer,
+        id:       action.id
       };
       newState.facts.push(newFact);
     } catch (err) {

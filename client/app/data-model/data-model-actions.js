@@ -1,4 +1,6 @@
 import 'whatwg-fetch';
+import {factAPI} from './data-model-api.js';
+import * as uuid from 'uuid';
 
 const requestFacts = () => (
   {
@@ -41,5 +43,29 @@ export function fetchQuizes() {
     return fetch('/api/v1/quizes')
     .then((response) => (response.json()))
     .then((responseObj) => (dispatch(receiveQuizes(responseObj))));
+  }
+}
+
+const createFactResponse = (id) => (
+  {
+    type: "DATA_FACT_CREATE_RESPONSE",
+    id: id
+  }
+);
+
+const createFactRequest = (fact) => (
+  {
+    ...fact,
+    type: "DATA_FACT_CREATE_REQUEST",
+  }
+);
+
+export function createFact(fact) {
+  return function(dispatch) {
+    let id = uuid.v4();
+    let newFact = {...fact, id: id };
+    dispatch(createFactRequest(newFact));
+    return factAPI.create(newFact)
+    .then( () => (dispatch(createFactResponse(id))));
   }
 }

@@ -1,5 +1,7 @@
 import { connect } from 'react-redux';
 import ActionBar from './add-fact.jsx';
+import {createFact} from '../../data-model/data-model-actions.js';
+
 const mapStateToProps = (state) => {
   return {
     question: state.app.addFact.question,
@@ -11,13 +13,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
   return {
     onOK: (factData) => {
-        dispatch(
-          {
-            type: "FACT_ADDED",
-            question: factData.question,
-            answer: factData.answer
-          }
-        );
+        //create the fact
+        dispatch(createFact(factData));
+        //close the page
         dispatch(
           {
             type: "ADD_FACT_CLOSED"
