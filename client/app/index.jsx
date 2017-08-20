@@ -1,3 +1,5 @@
+import 'babel-polyfill';
+import thunkMiddleware from 'redux-thunk';
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import css from './index.scss';
@@ -7,6 +9,8 @@ import appReducer  from './components/app-reducer.js';
 import App from './components/app.jsx';
 import dataModelReducer from './data-model/data-model-reducer.js';
 import carbonCss from 'carbon-components/css/carbon-components.css';
+import {fetchFacts, fetchQuizes} from './data-model/data-model-actions.js';
+
 const reducer = combineReducers({
   app: appReducer,
   data: dataModelReducer
@@ -28,8 +32,11 @@ const logger = store => next => action => {
 
 let store = createStore(
   reducer,
-  applyMiddleware(logger)
+  applyMiddleware(thunkMiddleware, logger)
 );
+
+store.dispatch(fetchFacts());
+store.dispatch(fetchQuizes());
 
 ReactDOM.render(
   <Provider store={store}>
